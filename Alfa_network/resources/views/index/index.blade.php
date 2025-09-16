@@ -1,13 +1,13 @@
 <x-layout>
-    <nav></nav>
-        <h2>Available Ninjas</h2>
+    <h2>Available Character</h2>
 
-        <u1>
-            @foreach ($ninjas as $ninja)
-                <li>
-                    <p>{{ $ninja ['name']}}</p>
-                    <a href="/index/{{  $ninja['id'] }}">View Details </a>
-                </li>
-            @endforeach
-        </u1>
+    <ul>
+        @foreach ($characters as $character)
+            <li>
+                <x-card href="/character/{{ $character['id'] }}" :highlight="$character['skill'] > 70">
+                    <h3>{{ $character['name']}}</h3>
+                </x-card>
+            </li>
+        @endforeach
+    </ul>
 </x-layout>
