@@ -2,16 +2,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alfa's Network</title>
+    <title>Character Network</title>
+
+    @vite('resources/css/app.css')
 </head>
 <body>
     <header>
         <nav>
             <h1>
-                Alfa's Network
+                Character Network
             </h1>
-            <a href="/index">All ninjas</a>
-            <a href="/index/create">Create New Ninjas</a>
+            <a href="/character">All Characters</a>
+            <a href="/character/create">Create New Characters</a>
         </nav>
     </header>
 
