@@ -12,8 +12,8 @@
             <h1>
                 Character Network
             </h1>
-            <a href="/character">All Characters</a>
-            <a href="/character/create">Create New Characters</a>
+            <a href="{{ route('characters.index') }}">All Characters</a>
+            <a href="{{ route('characters.create') }}">Create New Characters</a>
         </nav>
     </header>
 
