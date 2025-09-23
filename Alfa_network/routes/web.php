@@ -9,11 +9,6 @@ Route::get('/', function () {
 
 Route::get('/character', [CharacterController::class, 'index']);
 
-Route::get('/character/create', function () {
-    return view('character.create');
-});
+Route::get('/character/create', [CharacterController::class, 'create']);
 
-Route::get('/character/{id}', function ($id){
-
-    return view('character.show', ["id" => $id]);
-});
+Route::get('/character/{id}', [CharacterController::class, 'show']);
