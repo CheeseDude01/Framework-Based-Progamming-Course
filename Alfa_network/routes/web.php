@@ -7,8 +7,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/character', [CharacterController::class, 'index']);
+Route::get('/character', [CharacterController::class, 'index'])->name('characters.index');
 
-Route::get('/character/create', [CharacterController::class, 'create']);
+Route::get('/character/create', [CharacterController::class, 'create'])->name('characters.create');
 
-Route::get('/character/{id}', [CharacterController::class, 'show']);
+Route::get('/character/{id}', [CharacterController::class, 'show'])->name('characters.show');
