@@ -1,25 +1,19 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CharacterController;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/index', function (){
-    $ninjas = [
-        ["name" => "Furina", "skill" => 75, "id" => "1"],
-        ["name" => "Navia", "skill" => 70, "id" => "2"]
-    ];
+Route::get('/character', [CharacterController::class, 'index']);
 
-    return view('index.index', ["greeting" => "Hello!", "ninjas" => $ninjas]);
+Route::get('/character/create', function () {
+    return view('character.create');
 });
 
-Route::get('/index/create', function () {
-    return view('index.create');
-});
+Route::get('/character/{id}', function ($id){
 
-Route::get('/index/{id}', function ($id){
-
-    return view('index.show', ["id" => $id]);
+    return view('character.show', ["id" => $id]);
 });
