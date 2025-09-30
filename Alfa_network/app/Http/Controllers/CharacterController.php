@@ -9,14 +9,14 @@ class CharacterController extends Controller
 {
     public function index(){
         // route---> /character/
-        $characters = Characters::orderBy('created_at', 'desc')->paginate(10);
+        $characters = Characters::with('faction')->orderBy('created_at', 'desc')->paginate(10);
 
         return view('character.index', ["characters" => $characters]);
     }
 
     public function show($id){
         // route --> /character/{id}
-        $characters = Characters::findOrFail($id);
+        $characters = Characters::with('faction')->findOrFail($id);
 
         return view('character.show', ["characters" => $characters]);
     }
