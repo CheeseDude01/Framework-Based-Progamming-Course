@@ -45,6 +45,9 @@ class CharacterController extends Controller
 
     public function destroy($id){
         // --> /character/{id} (DELETE)
-        // handle delete request to delete a ninja record from table
+        $characters = Characters::findOrfail($id);
+        $characters->delete();
+
+        return redirect()->route('characters.index');
     }
 }
