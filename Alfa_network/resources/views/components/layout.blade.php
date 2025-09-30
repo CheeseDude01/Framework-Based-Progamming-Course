@@ -7,6 +7,11 @@
     @vite('resources/css/app.css')
 </head>
 <body>
+    @if (@session('success'))
+    @endif
+        <div id="flash" class="p-4 text-center bg-green-50 text-green-500 font-bold">
+        {{ session('success') }}
+        </div>
     <header>
         <nav>
             <h1>
