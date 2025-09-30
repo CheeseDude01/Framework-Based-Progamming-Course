@@ -11,8 +11,8 @@ Route::get('/character', [CharacterController::class, 'index'])->name('character
 
 Route::get('/character/create', [CharacterController::class, 'create'])->name('characters.create');
 
-Route::get('/character/{id}', [CharacterController::class, 'show'])->name('characters.show');
+Route::get('/character/{characters}', [CharacterController::class, 'show'])->name('characters.show');
 
 Route::post('/character', [CharacterController::class, 'store'])->name('character.store');
 
-Route::delete('/character/{id}', [CharacterController::class, 'destroy'])->name('characters.destroy');
+Route::delete('/character/{characters}', [CharacterController::class, 'destroy'])->name('characters.destroy');
