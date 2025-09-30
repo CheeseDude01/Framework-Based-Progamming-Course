@@ -15,9 +15,9 @@ class CharacterController extends Controller
         return view('character.index', ["characters" => $characters]);
     }
 
-    public function show($id){
+    public function show(Characters $characters){
         // route --> /character/{id}
-        $characters = Characters::with('faction')->findOrFail($id);
+        $characters->load('faction');
 
         return view('character.show', ["characters" => $characters]);
     }
@@ -43,9 +43,8 @@ class CharacterController extends Controller
         return redirect()->route('characters.index')->with('success', 'Character created!');
     }
 
-    public function destroy($id){
+    public function destroy(Characters $characters){
         // --> /character/{id} (DELETE)
-        $characters = Characters::findOrfail($id);
         $characters->delete();
 
         return redirect()->route('characters.index')->with('success', 'Character deleted!');
