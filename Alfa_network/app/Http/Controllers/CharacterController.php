@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Characters;
+use App\Models\Faction;
 use Illuminate\Http\Request;
 
 class CharacterController extends Controller
@@ -24,8 +25,9 @@ class CharacterController extends Controller
     public function create(){
         // route --> /character/create
         // render a create view (with web form) to users
+        $factions = Faction::all();
 
-        return view('character.create');
+        return view('character.create', ["factions" => $factions]);
     }
 
     public function store(){
