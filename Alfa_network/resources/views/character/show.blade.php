@@ -14,4 +14,11 @@
         <p><strong>About the Faction:</strong></p>
         <p>{{ $characters->faction->description }}</p>
     </div>
+
+    <form action="{{ route('characters.destroy', $characters) }}" method="POST">
+        @csrf
+        @method('DELETE')
+
+        <button type="submit" class="btn my-4">Delete Character</button>
+    </form>
     </x-layout>
