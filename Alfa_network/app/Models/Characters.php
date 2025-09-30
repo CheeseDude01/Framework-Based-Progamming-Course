@@ -11,4 +11,8 @@ class Characters extends Model
 
     /** @use HasFactory<\Database\Factories\CharactersFactory> */
     use HasFactory;
+
+    public function faction(){
+        return $this->belongsTo(Faction::class);
+    }
 }
