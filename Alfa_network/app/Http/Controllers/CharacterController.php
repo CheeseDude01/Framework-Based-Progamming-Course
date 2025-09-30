@@ -40,7 +40,7 @@ class CharacterController extends Controller
 
         Characters::create($validated);
 
-        return redirect()->route('characters.index');
+        return redirect()->route('characters.index')->with('success', 'Character created!');
     }
 
     public function destroy($id){
@@ -48,6 +48,6 @@ class CharacterController extends Controller
         $characters = Characters::findOrfail($id);
         $characters->delete();
 
-        return redirect()->route('characters.index');
+        return redirect()->route('characters.index')->with('success', 'Character deleted!');
     }
 }
