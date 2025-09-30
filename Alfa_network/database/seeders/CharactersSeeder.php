@@ -13,6 +13,6 @@ class CharactersSeeder extends Seeder
      */
     public function run(): void
     {
-        Characters::factory()->count(5)->create();
+        Characters::factory()->count(25)->create();
     }
 }
