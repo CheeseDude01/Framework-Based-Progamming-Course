@@ -30,8 +30,17 @@ class CharacterController extends Controller
         return view('character.create', ["factions" => $factions]);
     }
 
-    public function store(){
+    public function store(Request $request){
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'skill' => 'required|integer|min:0|max:100',
+            'bio' => 'required|string|min:20|max:1000',
+            'faction_id' => 'required|exists:factions,id',
+        ]);
 
+        Characters::create($validated);
+
+        return redirect()->route('characters.index');
     }
 
     public function destroy($id){
